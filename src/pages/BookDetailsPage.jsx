@@ -1,7 +1,7 @@
 export default function BookDetailPage() {
   return(
     <div>
-      Book detail page
+      Book details
     </div>
   )
 }
