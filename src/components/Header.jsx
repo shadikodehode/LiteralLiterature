@@ -1,10 +1,36 @@
+import { useState } from "react"
 import { Link } from "react-router"
+import { useSearch } from "../context/SearchContext.js"
 
 export default function Header() {
+  const [inputValue, setInputValue] = useState('')
+  const { setSearch, setPage, setTopic } = useSearch()
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setSearch(inputValue)
+    setPage(1)
+  }
+
+  const handleHome = () => {
+    setSearch('')
+    setPage('')
+    setTopic('')
+  }
+
   return (
     <nav>
-      <Link to="/">Home</Link>
-      <Link to="favorites">Favorites</Link>
+      <Link to="/" onClick={handleHome}>Home</Link>
+      <form onSubmit={handleSubmit}>
+        <input 
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          type="text" 
+          placeholder="Search book..." 
+        />
+        <button type="submit">Search</button>
+      </form>
+      <Link to="/favorites">Favorites</Link>
     </nav>
   )
 }
