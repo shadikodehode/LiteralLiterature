@@ -6,7 +6,10 @@ export const useBooks = ({ search = '', topic = '' }) => {
     queryKey:['books', {search, topic}],
     queryFn: ({pageParam}) => fetchBooks({search, topic, page: pageParam}),
     initialPageParam: 1,
-    getNextPageParam: (lastPage) => lastPage.next ?? undefined
+    getNextPageParam: (lastPage) => {
+      if (!lastPage.next) return undefined
+      return new URL(lastPage.next).searchParams.get('page')
+    }
   })
 }
 

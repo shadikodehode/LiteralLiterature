@@ -10,6 +10,7 @@ export default function Header() {
     e.preventDefault()
     setSearch(inputValue)
     setPage(1)
+    window.scrollTo(0,0)
   }
 
   const handleHome = () => {

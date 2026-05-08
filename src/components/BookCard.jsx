@@ -4,6 +4,7 @@ export function BookCard({ book }) {
   const { title, authors, formats } = book
   const author = authors[0]?.name
   const cover = formats["image/jpeg"]
+  
   return (
     <div>
       <Link to={`/book/${book.id}`}>
