@@ -1,4 +1,5 @@
 import { BookList } from "../components/BookList.jsx";
+import { CategoryList } from "../components/CategoryList.jsx";
 import { useSearch } from "../context/SearchContext.js";
 import { useBooks } from "../hooks/useBooks.js";
 import { useInfiniteScroll } from "../hooks/useInfiniteScroll.js";
@@ -16,6 +17,9 @@ export default function HomePage() {
   
   return(
     <div>
+      <div>
+        <CategoryList />
+      </div>
       <div>
         <BookList books={books} />
         {isFetchingNextPage && <div>Loading more...</div>}
