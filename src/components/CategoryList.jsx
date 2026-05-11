@@ -1,4 +1,8 @@
+import { useSearch } from "../context/SearchContext"
+
 export function CategoryList() {
+  const { setTopic, setPage, topic } = useSearch()
+  
   const categories = [
     'fiction', 'mystery', 
     'thriller', 'romance', 
@@ -9,9 +13,24 @@ export function CategoryList() {
     'philosophy',
   ]
 
-  return (
-    <div>
+  const handleCategory = (category) => {
+    setTopic(category)
+    setPage(1)
+  }
 
-    </div>
+  return (
+    <>
+      <div>
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => handleCategory(category)}
+            className={topic === category ? 'bg-red-600' : 'bg-blue-600'}
+          >
+           {category}
+          </button>
+        ))}
+      </div>
+    </>
   )
 }
