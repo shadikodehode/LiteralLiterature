@@ -4,7 +4,7 @@ const fetchGutendex = async (endpoint, params = {}) => {
     if(value) url.searchParams.append(key, value)
   })
   const response = await fetch(url)
-  if(!response.ok) throw new Error(`Request failed: ${response.status}`)
+  if(!response.ok) throw new Error(`${response.status}`)
     return await response.json()
 }
 

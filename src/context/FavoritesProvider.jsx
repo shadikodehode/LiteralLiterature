@@ -1,8 +1,15 @@
 import { FavoritesContext } from "./FavoritesContext"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export function FavoritesProvider({ children }) {
-  const [favorites, setFavorites] = useState([])
+  const [favorites, setFavorites] = useState(() => {
+    const stored = localStorage.getItem('favorites')
+    return stored ? JSON.parse(stored) : []
+  })
+
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites))
+  }, [favorites])
 
   const toggleFavorite = (book) => {
     setFavorites((prev) =>

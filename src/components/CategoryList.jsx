@@ -23,22 +23,40 @@ export function CategoryList() {
   
   return (
     <>
-      <div className="flex justify-center font-bold text-xl">
-        <button onClick={() => setIsOpen(!isOpen)}>
+      <div className="absolute flex flex-col font-bold text-xl">
+        <div className="flex flex-row cursor-pointer gap-2">
+          <button className="bg-accent p-2 rounded-sm"
+          onClick = {() => 
+            setIsOpen(!isOpen)}
+          >
           {topic || 'Categories'}
         </button>
+        
+        <button
+          onClick={() => handleCategory('')}>
+            Reset
+        </button>
+        </div>
+        
+
         {isOpen && (
-          <div>
+          <div className="flex gap-4 flex-col items-start font-normal text-md">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => handleCategory(category)}
-                className={topic === category ? 'bg-red-600' : 'bg-blue-600'}
+                className={topic === category 
+                  ? 
+                  '' 
+                  : 
+                  'cursor-pointer'
+                }
               >
               {category}
               </button>
             ))}
           </div>
+
         )}
       </div>
     </>

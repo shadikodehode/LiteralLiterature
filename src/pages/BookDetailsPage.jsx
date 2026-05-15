@@ -1,14 +1,15 @@
 import { useFavorites } from "../context/FavoritesContext.js"
 import { useBook } from "../hooks/useBooks.js"
 import { useParams } from "react-router"
+import { getErrorMessage } from "../utils/errorMessage.js"
 
 export default function BookDetailPage() {
   const { id } = useParams()
-  const { data, isLoading, isError } = useBook(id)
+  const { data, isLoading, isError, error } = useBook(id)
   const { isFavorited, toggleFavorite } = useFavorites()
   
   if (isLoading) return <div>Loading...</div>
-  if(isError) return <div>Error...</div>
+  if(isError) return <div>{getErrorMessage(error)}</div>
 
   const { title, authors, formats, summaries, subjects, download_count } = data
 
