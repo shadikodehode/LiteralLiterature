@@ -11,5 +11,5 @@ const fetchGutendex = async (endpoint, params = {}) => {
 export const fetchBooks = ({ search, topic, page}) =>
   fetchGutendex('books/', {search, topic, page})
 
-export const fetchBookId = (id) =>
+export const fetchBookById = (id) =>
   fetchGutendex(`books/${id}`)

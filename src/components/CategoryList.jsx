@@ -23,14 +23,14 @@ export function CategoryList() {
   
   return (
     <>
-      <div className="absolute flex flex-col font-bold text-xl">
+      <div className="absolute flex flex-col font-bold text-xl"
+          onMouseEnter={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}   
+      >
         <div className="flex flex-row cursor-pointer gap-2">
-          <button className="bg-accent p-2 rounded-sm"
-          onClick = {() => 
-            setIsOpen(!isOpen)}
-          >
-          {topic || 'Categories'}
-        </button>
+          <button className="bg-accent p-2 rounded-sm">
+            {topic || 'Categories'}
+          </button>
         
         <button
           onClick={() => handleCategory('')}>

@@ -1,5 +1,5 @@
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query"
-import { fetchBooks, fetchBookId } from "../api/gutendex.js"
+import { fetchBooks, fetchBookById } from "../api/gutendex.js"
 
 export const useBooks = ({ search = '', topic = '' }) => {
   return useInfiniteQuery({
@@ -16,7 +16,7 @@ export const useBooks = ({ search = '', topic = '' }) => {
 export const useBook = (id) => {
   return useQuery({
     queryKey:['book', id],
-    queryFn: () => fetchBookId(id),
+    queryFn: () => fetchBookById(id),
     enabled: !!id
   })
 }
