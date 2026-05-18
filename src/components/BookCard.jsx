@@ -6,15 +6,15 @@ export function BookCard({ book }) {
   const cover = formats["image/jpeg"]
   
   return (
-      <Link className="flex flex-row p-4 text-wrap w-xs h-md gap-6" 
+      <Link className="flex flex-row shrink-0 px-8 gap-4" 
         to={`/book/${book.id}`}>
-        <img className="shadow-xl  rounded-md h-45 w-30" 
+        <img className="shadow-xl rounded-md h-56 w-40" 
           src={cover} 
           alt={title} 
           onError={(e) => e.target.src ='/placeholder.jpg'}
         />
-        <div className="flex flex-col text-wrap max-w-25 gap-4">
-          <h1 className="text-sm font-bold line-clamp-4">
+        <div>
+          <h1 className="text-xl font-bold line-clamp-4 w-40">
             {title}</h1>
           <p className="text-xs font-bold opacity-60">
             {author}</p>

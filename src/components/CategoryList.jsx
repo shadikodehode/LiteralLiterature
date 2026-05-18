@@ -37,7 +37,6 @@ export function CategoryList() {
             Reset
         </button>
         </div>
-        
 
         {isOpen && (
           <div className="flex gap-4 flex-col items-start font-normal text-md">

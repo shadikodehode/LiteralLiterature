@@ -9,7 +9,7 @@ export default function HomePage() {
   const searchContext = useSearch()
   const { data, isLoading, isError, fetchNextPage, error, hasNextPage, isFetchingNextPage } = useBooks(searchContext)
   
-  const bottomRef = useInfiniteScroll({ fetchNextPage, hasNextPage, isFetchingNextPage })
+  const rightRef = useInfiniteScroll({ fetchNextPage, hasNextPage, isFetchingNextPage })
 
   if (isLoading) return <div>Loading...</div>
   if(isError) return <div>{getErrorMessage(error)}</div>
@@ -17,15 +17,10 @@ export default function HomePage() {
   const books = data.pages.flatMap((page) => page.results)
   
   return(
-    <div>
+    <div className="flex flex-col h-full">
       <div>
-        <CategoryList />
+        <BookList books={books} rightRef={rightRef} isFetchingNextPage={isFetchingNextPage}/>
       </div>
-      <div>
-        <BookList books={books} />
-        {isFetchingNextPage && <div>Loading more...</div>}
-      </div>
-      <div ref={bottomRef}/>
     </div>
   )
 }
