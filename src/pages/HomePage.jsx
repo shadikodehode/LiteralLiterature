@@ -1,5 +1,4 @@
 import { BookList } from "../components/BookList.jsx";
-import { CategoryList } from "../components/CategoryList.jsx";
 import { useSearch } from "../context/SearchContext.js";
 import { useBooks } from "../hooks/useBooks.js";
 import { useInfiniteScroll } from "../hooks/useInfiniteScroll.js";
