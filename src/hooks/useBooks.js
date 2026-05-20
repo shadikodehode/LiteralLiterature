@@ -1,10 +1,10 @@
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query"
 import { fetchBooks, fetchBookById } from "../api/gutendex.js"
 
-export const useBooks = ({ search = '', topic = '' }) => {
+export const useBooks = ({ search = '', topic = '', sort = '' }) => {
   return useInfiniteQuery({
-    queryKey:['books', {search, topic}],
-    queryFn: ({pageParam}) => fetchBooks({search, topic, page: pageParam}),
+    queryKey:['books', {search, topic, sort}],
+    queryFn: ({pageParam}) => fetchBooks({search, topic, sort, page: pageParam}),
     initialPageParam: 1,
     getNextPageParam: (lastPage) => {
       if (!lastPage.next) return undefined

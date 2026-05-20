@@ -18,7 +18,7 @@ export default function HomePage() {
   return(
     <div className="flex flex-col h-full">
       <div>
-        <BookList books={books} rightRef={rightRef} isFetchingNextPage={isFetchingNextPage}/>
+        <BookList books={books} rightRef={rightRef} isFetchingNextPage={isFetchingNextPage} />
       </div>
     </div>
   )

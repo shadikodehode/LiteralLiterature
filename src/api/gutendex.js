@@ -8,8 +8,8 @@ const fetchGutendex = async (endpoint, params = {}) => {
     return await response.json()
 }
 
-export const fetchBooks = ({ search, topic, page}) =>
-  fetchGutendex('books/', {search, topic, page})
+export const fetchBooks = ({ search, topic, page, sort}) =>
+  fetchGutendex('books/', {search, topic, page, sort})
 
 export const fetchBookById = (id) =>
   fetchGutendex(`books/${id}`)

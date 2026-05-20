@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
+body {
+  background: #eddfc5;
+}
+
 @theme {
   --color-backg: #fbf0d5;
   --color-accent: #ff6666;
   --color-text: #301208;
   --color-primary: #fef9dd;
   --color-secondary: #fdfce5;
-}
-
-body {
-  background: #fbf0d5;
 }

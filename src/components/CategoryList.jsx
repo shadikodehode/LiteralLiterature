@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useSearch } from "../context/SearchContext"
+import { useSearch } from "../context/SearchContext.js"
 
 export function CategoryList() {
   const { setTopic, setPage, topic } = useSearch()
@@ -22,27 +22,29 @@ export function CategoryList() {
   }
   
   return (
-    <>
-      <div className="absolute flex flex-col font-bold text-xl"
-          onMouseEnter={() => setIsOpen(true)}
-          onMouseLeave={() => setIsOpen(false)}   
+
+      <div 
+        className="absolute flex right-0 flex-col font-bold text-xl"
+        onMouseEnter={() => setIsOpen(true)}
+        onMouseLeave={() => setIsOpen(false)}   
       >
+
         <div className="flex flex-row cursor-pointer gap-2">
           <button className="bg-accent p-2 rounded-sm">
-            {topic || 'Categories'}
+            { topic || 'Categories' }
           </button>
         
-        <button
+          <button
           onClick={() => handleCategory('')}>
             Reset
-        </button>
+          </button>
         </div>
 
-        {isOpen && (
-          <div className="flex gap-4 flex-col items-start font-normal text-md">
-            {categories.map((category) => (
+        { isOpen && (
+          <div className="flex flex-col gap-4 items-start font-normal text-md">
+            { categories.map((category) => (
               <button
-                key={category}
+                key={ category }
                 onClick={() => handleCategory(category)}
                 className={topic === category 
                   ? 
@@ -51,13 +53,12 @@ export function CategoryList() {
                   'cursor-pointer'
                 }
               >
-              {category}
+                { category }
               </button>
             ))}
           </div>
 
         )}
       </div>
-    </>
   )
 }
