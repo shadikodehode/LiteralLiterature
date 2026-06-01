@@ -9,7 +9,8 @@ export const useBooks = ({ search = '', topic = '', sort = '' }) => {
     getNextPageParam: (lastPage) => {
       if (!lastPage.next) return undefined
       return new URL(lastPage.next).searchParams.get('page')
-    }
+    },
+    staleTime: 1000 * 60 * 5
   })
 }
 
@@ -17,6 +18,7 @@ export const useBook = (id) => {
   return useQuery({
     queryKey:['book', id],
     queryFn: () => fetchBookById(id),
-    enabled: !!id
+    enabled: !!id,
+    staleTime: 1000 * 60 * 5
   })
 }
