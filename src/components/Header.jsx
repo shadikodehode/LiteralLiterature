@@ -1,7 +1,5 @@
 import { Link } from "react-router"
 import { useSearch } from "../context/SearchContext.js"
-import { CategoryList } from "./CategoryList.jsx"
-import { SortingList } from "./SortingList.jsx"
 import { Searchbar } from "./Searchbar.jsx"
 
 export default function Header() {
@@ -18,8 +16,6 @@ export default function Header() {
       <Link className="flex" to="/" onClick={handleHome}>Home</Link>
       <Searchbar />
       <Link to="/favorites">Favorites</Link>
-      <SortingList />
-      <CategoryList />
     </nav>
   )
 }
