@@ -15,7 +15,7 @@ export function CategoryCard({ category }) {
       onClick={handleClick}>
 
       <img
-        className="h-38" 
+        className="h-38 shadow-md" 
         src={category.image} 
         alt={category.label} 
       />

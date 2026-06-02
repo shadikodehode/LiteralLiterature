@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 body {
-  background: #eddfc5;
+  background: oklch(97.782% 0.02483 104.464);
 }
 
 @theme {
