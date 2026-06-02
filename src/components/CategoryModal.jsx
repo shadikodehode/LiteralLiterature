@@ -1,38 +1,38 @@
-import { useSearch } from "../context/SearchContext"
 import { categories } from "../data/categories"
+import { CategoryCard } from "./CategoryCard"
 
 export function CategoryModal({ onClose }) {
-  const { setTopic, setPage } = useSearch()
-
-  const handleSelect = (value) => {
-    setTopic(value)
-    setPage(1)
-    onclose()
-  }
 
   return (
     <>
       <div 
         className="fixed inset-0 z-10" 
-        onClick={onclose} />
+        onClick={onClose} 
+      />
       <div
         className="fixed inset-0 z-20 flex items-center justify-center pointer-events-none"
       >
         <div
-        className="pointer-events-auto"
+        className="flex flex-col pointer-events-auto bg-red-500 m-20 rounded-2xl"
           autoFocus
           tabIndex={-1}
           onKeyDown={(e) => e.key === 'Escape' && onClose()}
         >
-          <button onClick={onclose}>Xicon</button>
-          <div>
+          <div className="flex justify-end">
+            <button 
+              className="cursor-pointer"
+              onClick={onClose}
+            >
+              Xicon
+            </button>
+          </div>
+
+          <div className="flex flex-row flex-wrap justify-center p-8 gap-8">
             {categories.map((category) => (
-              <button
-                key={category.value}
-                onClick={() => handleSelect(category.value)}
-              >
-                {category.label}
-              </button>
+              <CategoryCard 
+                key={category.value} 
+                category={category}
+              />
             ))}
           </div>
         </div>

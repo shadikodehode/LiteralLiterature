@@ -1,4 +1,5 @@
 import { BookList } from "../components/BookList.jsx";
+import { CategoryGrid } from "../components/CategoryGrid.jsx";
 import { useSearch } from "../context/SearchContext.js";
 import { useBooks } from "../hooks/useBooks.js";
 import { useInfiniteScroll } from "../hooks/useInfiniteScroll.js";
@@ -22,14 +23,17 @@ export default function HomePage() {
   const books = data.pages.flatMap((page) => page.results)
   
   return(
-    <div className="flex flex-col h-full">
-      <div>
-        {isFiltered 
-          ? <BookList books={books} rightRef={rightRef} isFetchingNextPage={isFetchingNextPage} /> 
-          : <BookList books={popularBooks} rightRef={rightRef} isFetchingNextPage={isFetchingNextPage} />
-        }
+    <>
+      <div className="flex flex-col h-full">
+        <h1>Popular</h1>
+        <div className="mb-20">
+          {isFiltered 
+            ? <BookList books={books} rightRef={rightRef} isFetchingNextPage={isFetchingNextPage} /> 
+            : <BookList books={popularBooks} rightRef={rightRef} isFetchingNextPage={isFetchingNextPage} />
+          }
+        </div>
+        <CategoryGrid />
       </div>
-
-    </div>
+    </>
   )
 }

@@ -9,13 +9,19 @@ export function CategoryGrid() {
   return (
     <>
       <div>
-        <div>
-          {categories.slice(0, 6).map((category) => (
-            <CategoryCard key={category.value} category={category} />
-          ))}
+        <div className="flex justify-between mr-30 ml-30">
+          <h1>Categories</h1>
+          <button onClick={() => setIsOpen(true)}>Show All</button>
         </div>
-        <button onClick={() => setIsOpen(true)}>Show All</button>
         {isOpen && <CategoryModal onClose={() => setIsOpen(false)} />}
+         <div className="flex flex-row justify-center gap-16">
+          {categories.slice(0, 6).map((category) => (
+            <CategoryCard 
+              key={category.value} 
+              category={category} 
+            />
+          ))}
+        </div> 
       </div>
     </>
   )

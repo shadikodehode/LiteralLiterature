@@ -10,8 +10,16 @@ export function CategoryCard({ category }) {
 
  return (
   <>
-    <div onClick={handleClick}>
-      <img src={category.image} alt={category.label} />
+    <div
+      className="flex flex-col items-center cursor-pointer"
+      onClick={handleClick}>
+
+      <img
+        className="h-38" 
+        src={category.image} 
+        alt={category.label} 
+      />
+
       <h3>{category.label}</h3>
     </div>
   </>
