@@ -1,4 +1,4 @@
-import { BookList } from "../components/BookList"
+import { BookPopular } from "../components/BookPopular"
 import { useFavorites } from "../context/FavoritesContext"
 
 export default function FavoritesPage() {
@@ -8,7 +8,7 @@ export default function FavoritesPage() {
 
   return (
     <div>
-      <BookList books={favorites} />
+      <BookPopular books={favorites} />
     </div>
   )
 }

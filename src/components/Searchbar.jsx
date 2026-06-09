@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { useSearch } from "../context/SearchContext";
+import { SearchIcon } from "./icons/SearchIcon";
+import { HoverStyles } from "../styles/common";
+import { CommonStyles } from "../styles/common";
 
 export function Searchbar() {
   const [inputValue, setInputValue] = useState('')
   const [isOpen, setIsOpen] = useState(false)
   const { setSearch, setPage } = useSearch()
+
+  const iconHover = HoverStyles.navIcon
+  const navIcon = CommonStyles.navIcon
 
    const handleSubmit = (e) => {
     e.preventDefault()
@@ -16,10 +22,10 @@ export function Searchbar() {
   return (
     <div className="relative"
     >
-      <button
+      <button className="ml-1 pt-2"
         onClick={() => setIsOpen(true)}
       >
-        SearchIcon
+        <SearchIcon className={`size-7 cursor-pointer ${iconHover} ${navIcon}`} />
       </button>
       {isOpen && (
         <div className="absolute left-0">

@@ -1,9 +1,10 @@
-import { BookCard } from "./BookCard";
-import { useScrollContainer } from "../hooks/useScrollContainer";
-import { ScrollContext } from "../context/ScrollContext";
-import { useDragScroll } from "../hooks/useDragScroll";
+import { BookCard } from "./BookCard.jsx";
+import { useScrollContainer } from "../hooks/useScrollContainer.js";
+import { ScrollContext } from "../context/ScrollContext.js";
+import { useDragScroll } from "../hooks/useDragScroll.js";
+import { ArrowBoxIcon } from "./icons/ArrowBoxIcon.jsx"
 
-export function BookList({ books, rightRef, isFetchingNextPage }) {
+export function BookPopular({ books, rightRef, isFetchingNextPage }) {
   const { containerRef, scrollLeft, scrollRight } = useScrollContainer()
   const { onMouseDown, onMouseMove, onMouseUp, isScrolling } = useDragScroll(containerRef)
 
@@ -11,7 +12,9 @@ export function BookList({ books, rightRef, isFetchingNextPage }) {
     <ScrollContext.Provider value={{ isScrolling }}>
     <div className="flex justify-center"
     draggable={false}>
-      <button onClick={scrollLeft}>Left</button>
+      <button onClick={scrollLeft}>
+        <ArrowBoxIcon />
+      </button>
       <div 
         ref={containerRef}
         onMouseDown={onMouseDown}
@@ -28,7 +31,9 @@ export function BookList({ books, rightRef, isFetchingNextPage }) {
         {isFetchingNextPage && <div>Loading more...</div>}
         <div ref={rightRef} />
       </div>
-      <button onClick={scrollRight}>Right</button>
+      <button onClick={scrollRight}>
+        <ArrowBoxIcon />
+      </button>
     </div>
     </ScrollContext.Provider>
   )

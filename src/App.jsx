@@ -8,7 +8,7 @@ export default function App() {
     <div className="flex flex-row h-screen overflow-hidden text-text">
       <ScrollRestoration />
       <Header />
-      <div className="flex-1 min-h-0 overflow-hidden pt-30 mt-10">
+      <div className="flex-1 min-h-0 overflow-hidden mt-16">
         <Outlet />
       </div>
     </div>

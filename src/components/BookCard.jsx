@@ -15,7 +15,7 @@ export function BookCard({ book }) {
         to={`/book/${book.id}`}
         onClick={(e) => { if (isScrolling.current) e.preventDefault() }}
       >
-        <img className="shadow-xl rounded-md h-56 w-40" 
+        <img className="shadow-md rounded-md h-56 w-40" 
           src={cover} 
           alt={title} 
           draggable={false}

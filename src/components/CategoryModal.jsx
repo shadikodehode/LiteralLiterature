@@ -1,5 +1,6 @@
 import { categories } from "../data/categories"
 import { CategoryCard } from "./CategoryCard"
+import { ExitIcon } from "./icons/ExitIcon"
 
 export function CategoryModal({ onClose }) {
 
@@ -24,13 +25,13 @@ export function CategoryModal({ onClose }) {
               className="cursor-pointer"
               onClick={onClose}
             >
-              Xicon
+              <ExitIcon className="w-10 h-10 text-red-400"/>
             </button>
           </div>
 
-          <div className="flex flex-row flex-wrap justify-center p-8 gap-16">
+          <div className="flex flex-row flex-wrap justify-center p-8 gap-20">
             {categories.map((category) => (
-              <CategoryCard 
+              <CategoryCard
                 key={category.value} 
                 category={category}
               />
