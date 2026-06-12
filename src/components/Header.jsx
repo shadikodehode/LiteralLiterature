@@ -5,19 +5,26 @@ import { BookmakrIcon } from "./icons/BookmakrIcon.jsx"
 import { BookshelfIcon } from "./icons/BookshelfIcon.jsx"
 import { HamburgerMenuIcon } from "./icons/HamburgerMenuIcon.jsx"
 import { LogoIcon } from "./icons/LogoIcon.jsx"
-import { HoverStyles } from "../styles/common.js"
-import { ActiveStyles } from "../styles/common.js"
 import { NavLink } from "react-router"
-import { CommonStyles } from "../styles/common.js"
+import { CommonStyles } from "../styles/commonStyles.js"
+import { HoverStyles } from "../styles/hoverStyles.js"
+import { ActiveStyles } from "../styles/activeStyles.js"
+import { ContainerStyles } from "../styles/containerStyles.js"
+import { NavStyles } from "../styles/navStyles.js"
 
 export default function Header() {
   const { setSearch, setPage, setTopic } = useSearch()
 
-  const buttonHover = HoverStyles.navButton
-  const iconHover = HoverStyles.navIcon
-  const iconActive = ActiveStyles.navIcon
-  const buttonActive = ActiveStyles.navButton
-  const navIcon = CommonStyles.navIcon 
+  const ButtonHover = HoverStyles.navButton
+  const IconHover = HoverStyles.navIcon
+  const IconActive = ActiveStyles.navIcon
+  const ButtonActive = ActiveStyles.navButton
+  const NavIcon = NavStyles.navIcon 
+  const NavDiv = NavStyles.navDiv
+  const LogoStyle = CommonStyles.logoIcon
+  const ContainerNav = ContainerStyles.containerNav
+  const NavBox = NavStyles.navBox
+  const NavMargin = NavStyles.navMargin
 
   const handleHome = () => {
     setSearch('')
@@ -27,50 +34,49 @@ export default function Header() {
 
   return (
     <>
-      <nav className="flex flex-col justify-between items-center p-4 gap-4 mt-12 mb-12 font-bold text-2xl">
+      <nav className={`${NavDiv}`}>
         
         <div>
-          <LogoIcon className="size-16 text-red-500"/>
+          <LogoIcon className={`${LogoStyle}`} />
         </div>
 
-        <div className="flex flex-col gap-6">
+        <div className={`${ContainerNav}`}>
 
-          
           <NavLink to="/" onClick={handleHome}>
             {({ isActive }) => (
-              <div className={`flex justify-center items-center p-2 ${buttonHover} ${isActive ? `${buttonActive}` : ''}`}>
-                <HomeIcon className={`size-6 ${iconHover} ${isActive ? iconActive : navIcon}`} />
+              <div className={`flex justify-center items-center p-2 ${ButtonHover} ${isActive ? `${ButtonActive}` : ''}`}>
+                <HomeIcon className={`size-6 ${IconHover} ${isActive ? IconActive : NavIcon}`} />
               </div>
             )} 
           </NavLink>
 
-          <div className={`flex justify-center items-center p-2 ${buttonHover}`}>
+          <div className={`${NavBox} ${ButtonHover}`}>
             <Searchbar />
           </div>
 
           
           <NavLink to="/favorites">
             {({ isActive }) => (
-              <div className={`flex justify-center items-center p-2 ${buttonHover} ${isActive ? `${buttonActive}` : ''}`}>
-                <BookmakrIcon className={`size-7 ${iconHover} ${isActive ? iconActive : navIcon}`} />
+              <div className={`${NavBox} ${ButtonHover} ${isActive ? `${ButtonActive}` : ''}`}>
+                <BookmakrIcon className={`size-7 ${IconHover} ${isActive ? IconActive : NavIcon}`} />
               </div>
             )}
           </NavLink>
           
           <NavLink to="/BookPopular">
             {({ isActive }) => (
-              <div className={`flex justify-center items-center p-2 ml-0.5 pl-3 ${buttonHover} ${isActive ? `${buttonActive}` : ''}`}>
-                <BookshelfIcon className={`size-7 shrink-0 ${iconHover} ${isActive ? iconActive : navIcon}`} />
+              <div className={`ml-0.5 pl-3 ${NavBox} ${ButtonHover} ${isActive ? `${ButtonActive}` : ''}`}>
+                <BookshelfIcon className={`size-7 shrink-0 ${IconHover} ${isActive ? IconActive : NavIcon}`} />
               </div>
             )}
           </NavLink>
 
         </div>
-        <div className="flex justify-center items-center p-2 mr-2">
-          <HamburgerMenuIcon className={`size-8 ${navIcon}`} />
+        <div className={`mr-2 ${NavBox}`}>
+          <HamburgerMenuIcon className={`size-8 ${NavIcon}`} />
         </div>
       </nav>
-      <div className="bg-taupe-400/50 w-0.5 my-5 rounded-md"></div>
+      <div className={`${NavMargin}`}></div>
     </>
   )
 }

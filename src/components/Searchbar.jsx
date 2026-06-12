@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useSearch } from "../context/SearchContext";
 import { SearchIcon } from "./icons/SearchIcon";
-import { HoverStyles } from "../styles/common";
-import { CommonStyles } from "../styles/common";
+import { HoverStyles } from "../styles/hoverStyles";
+import { NavStyles } from "../styles/navStyles";
+
 
 export function Searchbar() {
   const [inputValue, setInputValue] = useState('')
@@ -10,7 +11,7 @@ export function Searchbar() {
   const { setSearch, setPage } = useSearch()
 
   const iconHover = HoverStyles.navIcon
-  const navIcon = CommonStyles.navIcon
+  const navIcon = NavStyles.navIcon
 
    const handleSubmit = (e) => {
     e.preventDefault()

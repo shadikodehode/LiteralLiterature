@@ -1,15 +1,15 @@
 import { Link } from "react-router"
+import { formatAuthorName } from "../utils/formatAuthorName.js"
 import { useScrollContext } from "../context/ScrollContext.js"
 import { BookStyles } from "../styles/bookStyles.js"
 
 export function BookCard({ book }) {
-  const { title, formats } = book
-  const cover = formats["image/jpeg"]
+  const { title, authors } = book
+  const author = formatAuthorName(authors[0]?.name)
   
   const { isScrolling } = useScrollContext()
 
   const BookDiv = BookStyles.bookDiv
-  const BookImg = BookStyles.bookImg
   
   return (
       <Link className={`${BookDiv}`}
@@ -17,12 +17,12 @@ export function BookCard({ book }) {
         to={`/book/${book.id}`}
         onClick={(e) => { if (isScrolling.current) e.preventDefault() }}
       >
-        <img className={`${BookImg}`} 
-          src={cover} 
-          alt={title} 
-          draggable={false}
-          onError={(e) => e.target.src ='/placeholder.jpg'}
-        />
+        <div>
+          <h1>
+            {title}</h1>
+          <p>
+            {author}</p>
+        </div>
       </Link>
   )
 }

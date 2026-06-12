@@ -1,5 +1,5 @@
 import { useSearch } from "../context/SearchContext";
-import { HoverStyles } from "../styles/common";
+import { HoverStyles } from "../styles/hoverStyles";
 
 export function CategoryCard({ category }) {
  const { setTopic, setPage } = useSearch()

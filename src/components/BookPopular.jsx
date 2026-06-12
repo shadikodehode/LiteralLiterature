@@ -3,10 +3,13 @@ import { useScrollContainer } from "../hooks/useScrollContainer.js";
 import { ScrollContext } from "../context/ScrollContext.js";
 import { useDragScroll } from "../hooks/useDragScroll.js";
 import { ArrowBoxIcon } from "./icons/ArrowBoxIcon.jsx"
+import { BookStyles } from "../styles/bookStyles.js";
 
 export function BookPopular({ books, rightRef, isFetchingNextPage }) {
   const { containerRef, scrollLeft, scrollRight } = useScrollContainer()
   const { onMouseDown, onMouseMove, onMouseUp, isScrolling } = useDragScroll(containerRef)
+
+  const BookContainer = BookStyles.bookContainer
 
   return (
     <ScrollContext.Provider value={{ isScrolling }}>
@@ -21,12 +24,9 @@ export function BookPopular({ books, rightRef, isFetchingNextPage }) {
         onMouseMove={onMouseMove}
         onMouseUp={onMouseUp}
         onMouseLeave={onMouseUp}
-        className="
-        flex flex-row overflow-x-auto h-full
-        gap-4 m-4 p-8 cursor-grab
-        "
+        className={`${BookContainer} no-scrollbar`}
       >
-        <div className="min-w-[35vw]"/>
+        <div className="min-w-[35vw] "/>
         {books.map((book) => <BookCard key={book.id} book={book} />)}
         {isFetchingNextPage && <div>Loading more...</div>}
         <div ref={rightRef} />

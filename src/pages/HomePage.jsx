@@ -5,7 +5,9 @@ import { useSearch } from "../context/SearchContext.js";
 import { useBooks } from "../hooks/useBooks.js";
 import { useInfiniteScroll } from "../hooks/useInfiniteScroll.js";
 import { getErrorMessage } from "../utils/errorMessage.js";
-import { CommonStyles } from "../styles/common.js";
+import { FontStyles } from "../styles/fontStyles.js";
+import { ContainerStyles } from "../styles/containerStyles.js";
+import { CommonStyles } from "../styles/commonStyles.js";
 
 export default function HomePage() {
   const searchContext = useSearch()
@@ -13,7 +15,12 @@ export default function HomePage() {
   const { data: popularData, isLoading: isLoadingPopular } = useBooks({})
   const { search, topic } = useSearch()
   
-  const HeaderText = CommonStyles.headerText
+  const HeaderStyle = FontStyles.fontCommon
+  const HeaderFont = FontStyles.headerMain
+  const ContainerDiv = ContainerStyles.containerCommon
+  const ContainerPopular = ContainerStyles.containerMain
+  const loadingDiv = CommonStyles.loadingContainer
+  const loadingSpin = CommonStyles.loadingIcon
 
   const popularBooks = popularData?.pages.flatMap((page) => page.results) ?? []
 
@@ -21,8 +28,10 @@ export default function HomePage() {
   
   const rightRef = useInfiniteScroll({ fetchNextPage, hasNextPage, isFetchingNextPage })
 
-  if (isLoading || isLoadingPopular) return <div>
-    <ArrowCircleIcon className="size-24"/>
+  if (isLoading || isLoadingPopular) return <div className={`${loadingDiv}`}>
+    <div className={`${loadingSpin}`}>
+      <ArrowCircleIcon />
+    </div>
   </div>
   if(isError) return <div>{getErrorMessage(error)}</div>
 
@@ -30,9 +39,9 @@ export default function HomePage() {
   
   return(
     <>
-      <div className="flex flex-col h-full mx-10">
-        <h1 className={`${HeaderText}`}>Popular</h1>
-        <div className="mb-12">
+      <div className={`${ContainerDiv} ${ContainerPopular}`}>
+        <h1 className={`${HeaderStyle} ${HeaderFont}`}>Popular</h1>
+        <div>
           {isFiltered 
             ? <BookPopular books={books} rightRef={rightRef} isFetchingNextPage={isFetchingNextPage} /> 
             : <BookPopular books={popularBooks} rightRef={rightRef} isFetchingNextPage={isFetchingNextPage} />

@@ -1,8 +1,12 @@
 import { categories } from "../data/categories"
 import { CategoryCard } from "./CategoryCard"
 import { ExitIcon } from "./icons/ExitIcon"
+import { CommonStyles } from "../styles/commonStyles"
+import { HoverStyles } from "../styles/hoverStyles"
 
 export function CategoryModal({ onClose }) {
+  const ExitButton = CommonStyles.button
+  const ExitHover = HoverStyles.button
 
   return (
     <>
@@ -14,18 +18,17 @@ export function CategoryModal({ onClose }) {
         className="fixed inset-0 z-20 flex items-center justify-center pointer-events-none backdrop-blur-sm bg-slate-600/50"
       >
         <div
-        className="flex flex-col pointer-events-auto m-20 rounded-2xl w-3/4"
+        className="relative flex flex-col pointer-events-auto m-20 rounded-2xl w-3/4"
           autoFocus
           tabIndex={-1}
           onKeyDown={(e) => e.key === 'Escape' && onClose()}
         >
-          <div className="flex justify-between">
-            <h1>Categories</h1>
+          <div className="flex absolute top-0 right-0 justify-center">
             <button 
-              className="cursor-pointer"
+              className=" cursor-pointer"
               onClick={onClose}
             >
-              <ExitIcon className="w-10 h-10 text-red-400"/>
+              <ExitIcon className={`size-8 ${ExitButton} ${ExitHover}`}/>
             </button>
           </div>
 

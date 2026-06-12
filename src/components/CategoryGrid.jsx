@@ -2,19 +2,23 @@ import { useState } from "react";
 import { categories } from "../data/categories";
 import { CategoryCard } from "./CategoryCard";
 import { CategoryModal } from "./CategoryModal";
-import { CommonStyles } from "../styles/common.js"
+import { FontStyles } from "../styles/fontStyles.js";
+import { ContainerStyles } from "../styles/containerStyles.js"
 
 export function CategoryGrid() {
   const [isOpen, setIsOpen] = useState()
-  const HeaderText = CommonStyles.headerText
+
+  const HeaderStyle = FontStyles.fontCommon
+  const HeaderFont = FontStyles.headerSub
+  const ContainerDiv = ContainerStyles.containerCommon
+  const ContainerCategory = ContainerStyles.containerSub
 
   return (
     <>
-      <div className="flex flex-col gap-8">
-          <h1 className={`ml-24 ${HeaderText}`}>
+      <div className={`${ContainerDiv} ${ContainerCategory}`}>
+          <h1 className={`${HeaderStyle} ${HeaderFont}`}>
             Categories
           </h1>
-
         {
           isOpen 
           && 

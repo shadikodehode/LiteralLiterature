@@ -8,7 +8,7 @@ export function ArrowCircleIcon({ className }) {
         fillRule:'evenodd',
         clipRule:'evenodd',
         strokeLinecap:'round',
-        strokeMiterlimit:1.5
+        strokeMiterlimit:10
       }}
 
       xmlns="http://www.w3.org/2000/svg" 
