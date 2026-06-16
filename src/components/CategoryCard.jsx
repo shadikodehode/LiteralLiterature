@@ -1,12 +1,18 @@
 import { useSearch } from "../context/SearchContext";
+import { CategoryStyles } from "../styles/categoryStyles";
 import { HoverStyles } from "../styles/hoverStyles";
 
 export function CategoryCard({ category }) {
  const { setTopic, setPage } = useSearch()
  
  const hoverStyle = HoverStyles.categoryHover
+ const CategoryCardDiv = CategoryStyles.categoryCardDiv
+ const CategoryCardImg = CategoryStyles.categoryCardImg
+ const CategoryLabel = CategoryStyles.CategoryLabel
+ const CategoryBg = CategoryStyles.categoryBg
  
- const handleClick = () => {
+ const handleClick = (e) => {
+  e.stopPropagation()
   setTopic(category.value)
   setPage(1)
  }
@@ -14,20 +20,20 @@ export function CategoryCard({ category }) {
  return (
   <>
     <div
-      className={`relative flex flex-col items-center ${hoverStyle}`}
+      className={`${CategoryCardDiv} ${hoverStyle}`}
       onClick={handleClick}>
     
       <img
-        className="h-38 w-23.5 shadow-md" 
+        className={`${CategoryCardImg}`} 
         src={category.image} 
         alt={category.label} 
       />
 
-      <h1 className="flex absolute -bottom-2 text-xl w-28 skew-4 justify-center font-bold text-gray-50 bg-rose-700 rounded-sm p-1 shadow-xs shadow-black/30">
+      <h1 className={`${CategoryLabel}`}>
         {category.label}
       </h1>
 
-      <div className="flex absolute justify-center -skew-4 -bottom-2 rounded-xl w-34 h-18 bg-olive-100 -z-10 shadow-md shadow-black/30" />
+      <div className={`${CategoryBg}`} />
 
     </div>
   </>

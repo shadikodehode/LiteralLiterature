@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useSearch } from "../context/SearchContext.js"
+import { SortingStyles } from "../styles/sortingStyles.js"
 
 export function SortingList() {
   const { sort, setSort } = useSearch()
@@ -12,23 +13,28 @@ export function SortingList() {
   ]
 
   const handleSort = (value) => setSort(value)
+
+  const SortOpen = SortingStyles.sortOpen
+  const SortContainer = SortingStyles.sortContainer
+  const SortButton = SortingStyles.sortButton
+  const SortButtonSub = SortingStyles.sortButtonSub
   
   return (
     
     <div
-      className="absolute flex flex-col font-bold text-xl"
+      className={`${SortOpen}`}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
 
-      <div className="flex left-0 flex-row cursor-pointer gap-2">
-        <button className="bg-accent p-2 rounded-sm">
+      <div className={`${SortContainer}`}>
+        <button className={`${SortButton}`}>
           { sorting.find(s => s.value === sort)?.label || 'Sort'}
         </button>
       </div>
 
       { isOpen && (
-        <div className="flex flex-col gap-4 items-start font-normal text-md">
+        <div className={`${SortButtonSub}`}>
           { sorting.map(({ label, value }) => (
             <button
               key={ value || 'popular'}

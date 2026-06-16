@@ -1,4 +1,4 @@
 export const ActiveStyles = {
-  navButton: 'bg-red-500/60 rounded-md',
+  navButton: 'bg-red-700 rounded-md',
   navIcon: 'text-gray-100',
 }

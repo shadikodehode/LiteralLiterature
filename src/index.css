@@ -12,6 +12,14 @@ body {
   --color-secondary: #fdfce5;
 }
 
-  @utility no-scrollbar {
-    @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
-  }
+@utility no-scrollbar {
+  @apply 
+    [scrollbar-width:none] 
+    [&::-webkit-scrollbar]:hidden
+}
+
+@utility no-drag {
+  @apply 
+    [user-select:none] 
+    [-moz-user-select:none]
+}

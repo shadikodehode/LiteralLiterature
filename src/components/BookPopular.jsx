@@ -13,8 +13,7 @@ export function BookPopular({ books, rightRef, isFetchingNextPage }) {
 
   return (
     <ScrollContext.Provider value={{ isScrolling }}>
-    <div className="flex justify-center"
-    draggable={false}>
+    <div className="flex justify-center no-drag">
       <button onClick={scrollLeft}>
         <ArrowBoxIcon />
       </button>

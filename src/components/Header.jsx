@@ -25,6 +25,7 @@ export default function Header() {
   const ContainerNav = ContainerStyles.containerNav
   const NavBox = NavStyles.navBox
   const NavMargin = NavStyles.navMargin
+  const IconName = NavStyles.iconName
 
   const handleHome = () => {
     setSearch('')
@@ -44,37 +45,54 @@ export default function Header() {
 
           <NavLink to="/" onClick={handleHome}>
             {({ isActive }) => (
-              <div className={`flex justify-center items-center p-2 ${ButtonHover} ${isActive ? `${ButtonActive}` : ''}`}>
-                <HomeIcon className={`size-6 ${IconHover} ${isActive ? IconActive : NavIcon}`} />
+              <div className="relative w-12 h-12">
+                <div className={`absolute flex p-2 ${NavBox} ${ButtonHover} ${isActive ? `${ButtonActive}` : ''}`}>
+                  <span className={`${IconName} ${isActive ? IconActive: NavIcon}`}>
+                    Home
+                  </span>
+                  <HomeIcon className={`size-6 ${IconHover} ${isActive ? IconActive : NavIcon}`} />
+                  <div/>
+                </div>
               </div>
             )} 
           </NavLink>
-
-          <div className={`${NavBox} ${ButtonHover}`}>
-            <Searchbar />
-          </div>
-
           
           <NavLink to="/favorites">
             {({ isActive }) => (
-              <div className={`${NavBox} ${ButtonHover} ${isActive ? `${ButtonActive}` : ''}`}>
-                <BookmakrIcon className={`size-7 ${IconHover} ${isActive ? IconActive : NavIcon}`} />
+              <div className="relative w-12 h-12">
+                <div className={`absolute flex ${NavBox} ${ButtonHover} ${isActive ? `${ButtonActive}` : ''}`}>
+                  <span className={`${IconName} ${isActive ? IconActive: NavIcon}`}>
+                    Bookmarks
+                  </span>
+                  <BookmakrIcon className={`size-7 ${IconHover} ${isActive ? IconActive : NavIcon}`} />
+                  <div />
+                </div>
               </div>
             )}
           </NavLink>
           
           <NavLink to="/BookPopular">
             {({ isActive }) => (
-              <div className={`ml-0.5 pl-3 ${NavBox} ${ButtonHover} ${isActive ? `${ButtonActive}` : ''}`}>
-                <BookshelfIcon className={`size-7 shrink-0 ${IconHover} ${isActive ? IconActive : NavIcon}`} />
+              <div className="relative w-12 h-12">
+                <div className={`absolute ml-0.5 pl-3 ${NavBox} ${ButtonHover} ${isActive ? `${ButtonActive}` : ''}`}>
+                  <span className={`${IconName} ${isActive ? IconActive: NavIcon}`}>
+                    List
+                  </span>
+                  <BookshelfIcon className={`size-7 shrink-0 ${IconHover} ${isActive ? IconActive : NavIcon}`} />
+                  <div />
+                </div>
               </div>
             )}
           </NavLink>
 
+          <div className="relative w-12 h-12">
+            <div className={`absolute ${NavBox} ${ButtonHover}`}>
+              <Searchbar />
+            </div>
+          </div>
+
         </div>
-        <div className={`mr-2 ${NavBox}`}>
-          <HamburgerMenuIcon className={`size-8 ${NavIcon}`} />
-        </div>
+        <div />
       </nav>
       <div className={`${NavMargin}`}></div>
     </>

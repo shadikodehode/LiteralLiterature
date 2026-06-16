@@ -4,6 +4,7 @@ import { CategoryCard } from "./CategoryCard";
 import { CategoryModal } from "./CategoryModal";
 import { FontStyles } from "../styles/fontStyles.js";
 import { ContainerStyles } from "../styles/containerStyles.js"
+import { CategoryStyles } from "../styles/categoryStyles.js";
 
 export function CategoryGrid() {
   const [isOpen, setIsOpen] = useState()
@@ -11,7 +12,10 @@ export function CategoryGrid() {
   const HeaderStyle = FontStyles.fontCommon
   const HeaderFont = FontStyles.headerSub
   const ContainerDiv = ContainerStyles.containerCommon
-  const ContainerCategory = ContainerStyles.containerSub
+  const ContainerCategory = CategoryStyles.categoryContainer
+  const CategoryDiv = CategoryStyles.categoryDiv
+  const CategoryButtonDiv = CategoryStyles.categoryButtonDiv
+  const CategoryButton = CategoryStyles.categoryButton
 
   return (
     <>
@@ -28,7 +32,7 @@ export function CategoryGrid() {
         }
 
         <div 
-          className="flex flex-row justify-center gap-20"
+          className={`${CategoryDiv}`}
         >
           {
             categories
@@ -40,17 +44,17 @@ export function CategoryGrid() {
               />
             ))
           }
-          
         </div> 
 
-        <div className="flex justify-end mr-36">
+        <div className={CategoryButtonDiv}>
           <button 
-              className=" font-bold text-sm text-rose-700 cursor-pointer hover:text-base hover:text-rose-600 rounded-md transition-transform"
+              className={CategoryButton}
               onClick={() => setIsOpen(true)}
             >
               Show All
             </button>
           </div>
+
       </div>
     </>
   )

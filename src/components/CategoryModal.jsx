@@ -3,27 +3,29 @@ import { CategoryCard } from "./CategoryCard"
 import { ExitIcon } from "./icons/ExitIcon"
 import { CommonStyles } from "../styles/commonStyles"
 import { HoverStyles } from "../styles/hoverStyles"
+import { CategoryStyles } from "../styles/categoryStyles"
 
 export function CategoryModal({ onClose }) {
   const ExitButton = CommonStyles.button
   const ExitHover = HoverStyles.button
+  const CategoryModalDiv = CategoryStyles.categoryModalDiv
+  const CategoryModalClose = CategoryStyles.categoryModalClose
+  const CategoryModalButton = CategoryStyles.categoryModalButton
+  const CategoryModalCard = CategoryStyles.categoryModalCard
 
   return (
     <>
-      <div 
-        className="fixed inset-0 z-10" 
-        onClick={onClose} 
-      />
       <div
-        className="fixed inset-0 z-20 flex items-center justify-center pointer-events-none backdrop-blur-sm bg-slate-600/50"
+        className={`fixed inset-0 z-20 ${CategoryModalDiv}`}
+        onClick={onClose}
       >
         <div
-        className="relative flex flex-col pointer-events-auto m-20 rounded-2xl w-3/4"
+        className={`${CategoryModalClose}`}
           autoFocus
           tabIndex={-1}
           onKeyDown={(e) => e.key === 'Escape' && onClose()}
         >
-          <div className="flex absolute top-0 right-0 justify-center">
+          <div className={`${CategoryModalButton}`}>
             <button 
               className=" cursor-pointer"
               onClick={onClose}
@@ -32,7 +34,7 @@ export function CategoryModal({ onClose }) {
             </button>
           </div>
 
-          <div className="flex flex-row flex-wrap justify-center p-8 gap-20">
+          <div className={CategoryModalCard}>
             {categories.map((category) => (
               <CategoryCard
                 key={category.value} 

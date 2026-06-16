@@ -5,7 +5,7 @@ export function LogoIcon({ className }) {
       className={className} 
       viewBox="0 0 246 269" 
       style={{
-        fill: '#ff2386',
+        fill: 'oklch(51.4% 0.222 16.935)',
         fillRule:'evenodd',
         clipRule:'evenodd',
         strokeLinecap:'round',
@@ -19,14 +19,14 @@ export function LogoIcon({ className }) {
         <path d="M109.404,198.482l81.123,0c0,0 -12.46,10.547 -12.573,15.198c-0.113,4.651 11.064,13.188 11.064,13.188l-51.992,0" 
           style={{
             fill: 'none',
-            stroke: '#0084ff',
+            stroke: 'oklch(45.7% 0.24 277.023)',
             strokeWidth: '4px'
           }}
         />
         <path d="M108.622,201.276c0.354,6.653 -0.686,12.142 8.293,17.699c3.847,2.381 17.101,8.288 20.109,7.893l-28.438,0c-0.49,0 -0,-0.009 -0,-0.009c-16.264,0 -29.449,-12.494 -29.449,-27.906l-0,-192.749c0,-0.928 0.389,-1.818 1.082,-2.475c0.693,-0.656 1.632,-1.025 2.612,-1.025l21.606,-0c1.1,-0 2.156,0.414 2.934,1.152c0.778,0.737 1.215,1.737 1.215,2.78l-0,193.283l0.036,1.357Z" 
           style={{
             fill: 'none',
-            stroke: '#0084ff',
+            stroke: 'oklch(45.7% 0.24 277.023)',
             strokeWidth: '4px'
           }}
         />

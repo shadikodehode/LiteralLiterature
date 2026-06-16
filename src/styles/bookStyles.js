@@ -1,5 +1,5 @@
 export const BookStyles = {
  bookDiv: 'flex flex-row shrink-0 select-none',
- bookImg: 'shadow-md rounded-md h-56 w-40',
- bookContainer: 'flex flex-row overflow-x-auto h-full gap-32 m-4 p-8 cursor-grab',
+ bookImg: 'shadow-md rounded-md h-66 w-48 shadow-black/40',
+ bookContainer: 'flex flex-row overflow-x-auto h-full gap-18 m-4 p-8 cursor-grab',
 }
