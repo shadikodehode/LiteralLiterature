@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 body {
-  background: oklch(94.884% 0.01978 103.747);
+  background: #f0efe0;
 }
 
 @theme {
@@ -22,4 +22,5 @@ body {
   @apply 
     [user-select:none] 
     [-moz-user-select:none]
+    [-webkit-user-select:none]
 }

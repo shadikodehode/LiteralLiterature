@@ -1,9 +1,10 @@
-import { createBrowserRouter } from "react-router";
-import App from "../App.jsx";
+import { createBrowserRouter } from "react-router"
+import App from "../App.jsx"
 import Wildcard from "../pages/Wildcard.jsx"
-import HomePage from "../pages/HomePage.jsx";
-import FavoritesPage from "../pages/FavoritesPage";
-import BookDetailPage from "../pages/BookDetailsPage";
+import HomePage from "../pages/HomePage.jsx"
+import FavoritesPage from "../pages/FavoritesPage.jsx"
+import BookDetailPage from "../pages/BookDetailsPage.jsx"
+import BookListPage from "../pages/BookListPage.jsx"
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
     {
       path: "book/:id",
       element: <BookDetailPage />
+    },
+    {
+      path: "list",
+      element: <BookListPage />
     },
     {
       path: "*",
