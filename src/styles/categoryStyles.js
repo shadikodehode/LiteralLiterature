@@ -6,7 +6,7 @@ export const CategoryStyles = {
   categoryButton: 'text-sm group cursor-pointer transition-transform duration-75 font-semibold hover:font-bold hover:bg-rose-800 rounded-md px-2 py-1 hover:scale-105 hover:text-gray-100',
 
   categoryCardDiv: 'relative flex flex-col items-center',
-  categoryCardImg: 'h-38 w-23.5 shadow-md rounded-sm',
+  categoryCardImg: 'h-38 w-23.5 shadow-md rounded-sm no-drag',
   CategoryLabel: 'flex absolute -bottom-2 text-xl w-28 skew-4 justify-center font-bold text-gray-50 bg-rose-800 rounded-sm p-1 shadow-xs shadow-black/30',
   categoryBg: 'flex absolute justify-center -skew-4 -bottom-2 rounded-xl w-34 h-18 bg-olive-100 -z-10 shadow-md shadow-black/30',
 

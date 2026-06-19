@@ -24,7 +24,8 @@ export function CategoryCard({ category }) {
       onClick={handleClick}>
     
       <img
-        className={`${CategoryCardImg}`} 
+        className={`${CategoryCardImg}`}
+        draggable={false} 
         src={category.image} 
         alt={category.label} 
       />

@@ -25,7 +25,7 @@ export function BookPopular({ books, rightRef, isFetchingNextPage }) {
         onMouseLeave={onMouseUp}
         className={`${BookContainer} no-scrollbar`}
       >
-        <div className="min-w-[35vw] "/>
+        <div className=""/>
         {books.map((book) => <BookCard key={book.id} book={book} />)}
         {isFetchingNextPage && <div>Loading more...</div>}
         <div ref={rightRef} />

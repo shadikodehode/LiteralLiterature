@@ -36,62 +36,66 @@ export default function Header() {
   return (
     <>
       <nav 
-      className={`no-drag ${NavDiv}`}>
+        className={`${NavDiv} no-drag`} 
+        draggable={false}>
+
+          <div className={`${ContainerNav}`}>
+
+            <div>
+              <LogoIcon className={`${LogoStyle}`} />
+            </div>
+
+            <div className="flex flex-col gap-8">
+              <NavLink to="/" onClick={handleHome} draggable={false}>
+                {({ isActive }) => (
+                  <div className="relative w-12 h-12">
+                    <div className={`absolute ${NavBox} ${ButtonHover} ${isActive ? `${ButtonActive}` : ''}`}>
+                      <span className={`${IconName} ${IconHover} ${isActive ? IconActive : NavIcon}`}>
+                        Home
+                      </span>
+                      <HomeIcon className={`size-6 ${IconHover} ${isActive ? IconActive : NavIcon}`} />
+                      <div/>
+                    </div>
+                  </div>
+                )} 
+              </NavLink>
+              
+              <NavLink to="/favorites" draggable={false}>
+                {({ isActive }) => (
+                  <div className="relative right-0.5 w-12 h-12">
+                    <div className={`absolute flex ${NavBox} ${ButtonHover} ${isActive ? `${ButtonActive}` : ''}`}>
+                      <span className={`${IconName} ${IconHover} ${isActive ? IconActive: NavIcon}`}>
+                        Bookmarks
+                      </span>
+                      <BookmakrIcon className={`size-7 ${IconHover} ${isActive ? IconActive : NavIcon}`} />
+                      <div />
+                    </div>
+                  </div>
+                )}
+              </NavLink>
+              
+              <NavLink to="/list" draggable={false}>
+                {({ isActive }) => (
+                  <div className="relative right-1 w-12 h-12">
+                    <div className={`absolute flex ml-0.5 pl-3 ${NavBox} ${ButtonHover} ${isActive ? `${ButtonActive}` : ''}`}>
+                      <span className={`${IconName} ${IconHover} ${isActive ? IconActive: NavIcon}`}>
+                        List
+                      </span>
+                      <BookshelfIcon className={`size-7 shrink-0 ${IconHover} ${isActive ? IconActive : NavIcon}`} />
+                      <div />
+                    </div>
+                  </div>
+                )}
+              </NavLink>
+
+                <Searchbar/>
+            </div>
+            <div />
+              
+          </div>
         
-        <div>
-          <LogoIcon className={`${LogoStyle}`} />
-        </div>
-
-        <div className={`${ContainerNav}`}>
-
-          <NavLink to="/" onClick={handleHome} draggable={false}>
-            {({ isActive }) => (
-              <div className="relative w-12 h-12">
-                <div className={`absolute flex p-2 ${NavBox} ${ButtonHover} ${isActive ? `${ButtonActive}` : ''}`}>
-                  <span className={`${IconName} ${IconHover} ${isActive ? IconActive : NavIcon}`}>
-                    Home
-                  </span>
-                  <HomeIcon className={`size-6 ${IconHover} ${isActive ? IconActive : NavIcon}`} />
-                  <div/>
-                </div>
-              </div>
-            )} 
-          </NavLink>
-          
-          <NavLink to="/favorites" draggable={false}>
-            {({ isActive }) => (
-              <div className="relative right-0.5 w-12 h-12">
-                <div className={`absolute flex ${NavBox} ${ButtonHover} ${isActive ? `${ButtonActive}` : ''}`}>
-                  <span className={`${IconName} ${IconHover} ${isActive ? IconActive: NavIcon}`}>
-                    Bookmarks
-                  </span>
-                  <BookmakrIcon className={`size-7 ${IconHover} ${isActive ? IconActive : NavIcon}`} />
-                  <div />
-                </div>
-              </div>
-            )}
-          </NavLink>
-          
-          <NavLink to="/list" draggable={false}>
-            {({ isActive }) => (
-              <div className="relative right-1 w-12 h-12">
-                <div className={`absolute flex ml-0.5 pl-3 ${NavBox} ${ButtonHover} ${isActive ? `${ButtonActive}` : ''}`}>
-                  <span className={`${IconName} ${IconHover} ${isActive ? IconActive: NavIcon}`}>
-                    List
-                  </span>
-                  <BookshelfIcon className={`size-7 shrink-0 ${IconHover} ${isActive ? IconActive : NavIcon}`} />
-                  <div />
-                </div>
-              </div>
-            )}
-          </NavLink>
-
-            <Searchbar />
-            
-        </div>
-        <div />
       </nav>
-      <div className={`${NavMargin}`}></div>
+      <div className={`${NavMargin}`} />
     </>
   )
 }

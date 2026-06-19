@@ -18,7 +18,7 @@ export function BookCard({ book }) {
   
   return (
     <>
-      <Link className={`${BookDiv} no-drag`}
+      <Link className={`${BookDiv}`}
         draggable={false}
         to={`/book/${book.id}`}
         onClick={(e) => { if (isScrolling.current) e.preventDefault() }}
@@ -26,7 +26,7 @@ export function BookCard({ book }) {
         onMouseLeave = {() => {setIsHovered(false)}}
         onMouseMove = {onMouseMove}
       >
-        <img className={`${BookImg} no-drag`} 
+        <img className={`${BookImg}`} 
           draggable={false}
           src={cover} 
           alt={title} 
