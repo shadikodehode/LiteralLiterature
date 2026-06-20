@@ -1,4 +1,4 @@
-export function BookmarkToggleIcon({ filled, className }) {
+export function BookmarkToggleIcon({ filled, strokeColor = 'currentColor', fillColor = 'currentColor', className }) {
   return (
      
     <svg 
@@ -17,8 +17,8 @@ export function BookmarkToggleIcon({ filled, className }) {
         <g transform="matrix(1,0,0,1,-170,-667)">
             <path d="M1454.618778805,2328.62461383199L1455.82035626798,764.69210608786L245.15031840978,764.69210608786L245.15031840978,2328.62461383199L852,2017.28670855049L1454.618778805,2328.62461383199Z" 
               style={{
-                fill: filled ? 'currentColor' : 'none',
-                stroke: 'currentColor',
+                fill: filled ? fillColor : 'none',
+                stroke: strokeColor,
                 strokeWidth: '110px',
                 strokeDasharray: '2083.33333333333,208.33333333333,520.83333333333,208.33333333333,0,0',
                 strokeDashoffset: '520.83333333333',

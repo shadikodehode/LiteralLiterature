@@ -24,7 +24,7 @@ export default function Header() {
   const LogoStyle = CommonStyles.logoIcon
   const ContainerNav = ContainerStyles.containerNav
   const NavBox = NavStyles.navBox
-  const NavMargin = NavStyles.navMargin
+  const NavMargin = NavStyles.navMarginVertical
   const IconName = NavStyles.iconName
 
   const handleHome = () => {
