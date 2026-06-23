@@ -3,7 +3,6 @@ import { Searchbar } from "./Searchbar.jsx"
 import { HomeIcon } from "./icons/HomeIcon.jsx"
 import { BookmakrIcon } from "./icons/BookmakrIcon.jsx"
 import { BookshelfIcon } from "./icons/BookshelfIcon.jsx"
-import { HamburgerMenuIcon } from "./icons/HamburgerMenuIcon.jsx"
 import { LogoIcon } from "./icons/LogoIcon.jsx"
 import { NavLink } from "react-router"
 import { CommonStyles } from "../styles/commonStyles.js"
@@ -37,7 +36,8 @@ export default function Header() {
     <>
       <nav 
         className={`${NavDiv} no-drag`} 
-        draggable={false}>
+        draggable={false}
+      >
 
           <div className={`${ContainerNav}`}>
 
