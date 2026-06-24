@@ -1,1 +1,1 @@
-# E-book site created with the [https://gutendex.com/](Gutendex) API
+# E-book site created with the [Gutendex](https://gutendex.com/) API
